@@ -1,6 +1,6 @@
 # @amille/babel-preset
 
-This package includes the Babel preset (inspired by [babel-preset-react-app][cra-preset]).
+This package includes babel presets (inspired by [babel-preset-react-app][cra-preset]).
 
 [cra-preset]: https://www.npmjs.com/package/babel-preset-react-app
 
@@ -33,3 +33,64 @@ This preset uses the `useBuiltIns` option with [transform-object-rest-spread] an
 [transform-object-rest-spread]: http://babeljs.io/docs/plugins/transform-object-rest-spread/
 [transform-react-jsx]: http://babeljs.io/docs/plugins/transform-react-jsx/
 [babel]: https://babeljs.io/docs/setup/
+
+## Variants
+
+This package comes with 3 available presets.
+Ths configuration may change depending of your environment
+which is specified trough environment variables in the following order :
+`BABEL_ENV`, `NODE_ENV`.
+
+#### Node/React (default)
+
+This preset configures babel for the current node version with react support.
+
+```json
+{
+  "presets": ["@amille/babel-preset"]
+}
+```
+
+#### Node
+
+This preset configures babel for the current node version and drop the react support.
+
+```json
+{
+  "presets": ["@amille/babel-preset/no-react"]
+}
+```
+
+You may also use the `noReact` options from any other variants.
+
+```json
+{
+  "presets": [["@amille/babel-preset/no-react", { "noReact": true }]]
+}
+```
+
+#### Browsers
+
+This preset configures babel for browsers with react support.
+
+```json
+{
+  "presets": ["@amille/babel-preset/browsers"]
+}
+```
+
+The automatic configuration only support two kind of environment `production` and `development`.
+You may manually override the browser list.
+
+```json
+{
+  "presets": [
+    [
+      "@amille/babel-preset/browsers",
+      {
+        "browsers": ["last 1 chrome version"]
+      }
+    ]
+  ]
+}
+```
