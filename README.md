@@ -1,5 +1,9 @@
 # @amille/babel-preset
 
+![npm](https://img.shields.io/npm/v/@amille/babel-preset)
+![CircleCI](https://img.shields.io/circleci/build/github/amille44420/babel-preset)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 This package includes babel presets (inspired by [babel-preset-react-app][cra-preset]).
 
 [cra-preset]: https://www.npmjs.com/package/babel-preset-react-app
