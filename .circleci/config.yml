@@ -35,7 +35,7 @@ jobs:
 
   commit-lint:
     docker:
-      - image: circleci/node:12.13.0
+      - image: circleci/node:12.14.1
     steps:
       - checkout
       - attach_workspace:
@@ -44,7 +44,7 @@ jobs:
 
   publish:
     docker:
-      - image: circleci/node:12.13.0
+      - image: circleci/node:12.14.1
     steps:
       - checkout
       - attach_workspace:
@@ -53,37 +53,20 @@ jobs:
 
 workflows:
   version: 2
-  test:
+  build:
     jobs:
-      - deps-install:
-          filters:
-            branches:
-              ignore:
-                - master
+      - deps-install
       - code-lint:
           requires:
             - deps-install
       - commit-lint:
           requires:
             - deps-install
-  test-and-publish:
-    jobs:
-      - deps-install:
+      - publish:
           filters:
             branches:
               only:
                 - master
-      - code-lint:
-          requires:
-            - deps-install
-      - commit-lint:
-          requires:
-            - deps-install
-      - approval:
-          type: approval
           requires:
             - code-lint
             - commit-lint
-      - publish:
-          requires:
-            - approval
