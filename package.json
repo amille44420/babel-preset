@@ -1,6 +1,6 @@
 {
   "name": "@amille/babel-preset",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Babel preset",
   "repository": "github:amille44420/babel-preset",
   "bugs": "https://github.com/amille44420/babel-preset/issues",
