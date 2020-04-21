@@ -1,3 +1,5 @@
+## [1.0.10](https://github.com/amille44420/babel-preset/compare/v1.0.9...v1.0.10) (2020-04-21)
+
 ## [1.0.9](https://github.com/amille44420/babel-preset/compare/v1.0.8...v1.0.9) (2020-04-08)
 
 ## [1.0.8](https://github.com/amille44420/babel-preset/compare/v1.0.7...v1.0.8) (2020-03-25)
