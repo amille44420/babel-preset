@@ -1,6 +1,6 @@
 {
   "name": "@amille/babel-preset",
-  "version": "1.0.12",
+  "version": "0.0.0-development",
   "description": "Babel preset",
   "repository": "github:amille44420/babel-preset",
   "bugs": "https://github.com/amille44420/babel-preset/issues",
@@ -42,9 +42,6 @@
     "@amille/eslint-config": "^1.2.9",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@semantic-release/changelog": "^5.0.0",
-    "@semantic-release/github": "^7.0.5",
-    "@semantic-release/git": "^9.0.0",
     "commitlint-circle": "^1.0.0",
     "eslint": "^6.8.0",
     "prettier": "^2.0.1",
@@ -55,7 +52,7 @@
     "lint:fix": "npm run lint --fix",
     "lint:commit": "commitlint",
     "lint:commit:ci": "commitlint-circle",
-    "publish": "yarn semantic-release"
+    "release": "yarn semantic-release"
   },
   "publishConfig": {
     "access": "public"
