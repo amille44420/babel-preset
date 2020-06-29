@@ -65,6 +65,7 @@ workflows:
           requires:
             - deps-install
       - publish:
+          context: semver
           filters:
             branches:
               only:
