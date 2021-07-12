@@ -39,7 +39,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
   },
   "devDependencies": {
-    "@amille/eslint-config": "^1.4.0",
+    "@amille/eslint-config": "^2.0.0",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "commitlint-circle": "^1.0.0",
