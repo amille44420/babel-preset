@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@amille/eslint-config": "^1.4.0",
-    "@commitlint/cli": "^12.1.1",
+    "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^12.1.1",
     "commitlint-circle": "^1.0.0",
     "eslint": "^7.1.0",
