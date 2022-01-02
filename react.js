@@ -1,7 +1,2 @@
-const create = require('./create');
-
-module.exports = (api, options) => {
-    const env = process.env.BABEL_ENV || process.env.NODE_ENV;
-
-    return create(api, options, env);
-};
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+module.exports = require('./build/react');

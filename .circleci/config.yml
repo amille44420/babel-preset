@@ -1,23 +1,27 @@
 version: 2.1
 
+executors:
+  node-step:
+    docker:
+      - image: circleci/node:16.13.1
+
 jobs:
   deps-install:
-    docker:
-      - image:  circleci/node:12.14.1
+    executor: node-step
     steps:
       - checkout
       - restore_cache:
           keys:
-            - yarn-install-node12-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - yarn-install-node12-{{ checksum "package.json" }}
-            - yarn-install-node12
+            - yarn-install-node16-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - yarn-install-node16-{{ checksum "package.json" }}
+            - yarn-install-node16
           paths:
             - node_modules
             - ~/.cache/yarn
       - run:
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: yarn-install-node12-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: yarn-install-node16-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - ~/.cache/yarn
@@ -27,8 +31,7 @@ jobs:
             - node_modules
 
   code-lint:
-    docker:
-      - image: circleci/node:12.14.1
+    executor: node-step
     steps:
       - checkout
       - attach_workspace:
@@ -36,17 +39,27 @@ jobs:
       - run: yarn lint
 
   commit-lint:
-    docker:
-      - image: circleci/node:12.14.1
+    executor: node-step
     steps:
       - checkout
       - attach_workspace:
           at: ~/project
       - run: yarn lint:commit:ci
 
+  build:
+    executor: node-step
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run: yarn build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - build
+
   publish:
-    docker:
-      - image: circleci/node:12.14.1
+    executor: node-step
     steps:
       - checkout
       - attach_workspace:
@@ -58,9 +71,13 @@ workflows:
   build:
     jobs:
       - deps-install
+      - build:
+          requires:
+            - deps-install
       - code-lint:
           requires:
             - deps-install
+            - build
       - commit-lint:
           requires:
             - deps-install
@@ -71,5 +88,6 @@ workflows:
               only:
                 - master
           requires:
+            - build
             - code-lint
             - commit-lint
