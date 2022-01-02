@@ -14,12 +14,8 @@
   "author": "Adrien Mille <adrien.mille.aer@gmail.com>",
   "main": "index.js",
   "files": [
-    "browsers.js",
-    "browserslist.js",
-    "create.js",
-    "no-react.js",
-    "react.js",
     "index.js",
+    "index.d.ts",
     "build"
   ],
   "dependencies": {
