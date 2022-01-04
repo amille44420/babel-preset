@@ -38,7 +38,7 @@ export type Options = Partial<{
     }>;
 }>;
 
-const isNotFalse = <T>(item: T | false | null | undefined): item is T =>
+export const isNotFalse = <T>(item: T | false | null | undefined): item is T =>
     !((typeof item === 'boolean' && item === false) || item === null || item === undefined);
 
 /* eslint-disable global-require */

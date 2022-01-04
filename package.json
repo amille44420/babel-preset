@@ -16,6 +16,8 @@
   "files": [
     "index.js",
     "index.d.ts",
+    "dependencies.js",
+    "dependencies.d.ts",
     "build"
   ],
   "dependencies": {
