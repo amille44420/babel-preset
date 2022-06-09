@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-step:
     docker:
-      - image: circleci/node:16.13.1
+      - image: cimg/node:18.3.0
 
 jobs:
   deps-install:
@@ -12,16 +12,16 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - yarn-install-node16-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - yarn-install-node16-{{ checksum "package.json" }}
-            - yarn-install-node16
+            - yarn-install-node18-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - yarn-install-node18-{{ checksum "package.json" }}
+            - yarn-install-node18
           paths:
             - node_modules
             - ~/.cache/yarn
       - run:
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: yarn-install-node16-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: yarn-install-node18-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - ~/.cache/yarn
