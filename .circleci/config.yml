@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node-step:
     docker:
-      - image: cimg/node:18.3.0
+      - image: cimg/node:22.4.1
 
 jobs:
   deps-install:
